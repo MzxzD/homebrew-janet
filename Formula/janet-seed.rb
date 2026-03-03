@@ -29,7 +29,8 @@ class JanetSeed < Formula
     pip = libexec/"bin/pip"
     req_name = build.with?("full") ? "requirements.txt" : "requirements-core.txt"
     req_path = (janet_seed_dir/req_name).to_s
-    system "#{pip} install -r #{req_path}"
+    # Use safe_system (Homebrew.system) to avoid Formula#system ArgumentError on some setups
+    safe_system pip.to_s, "install", "-r", req_path
 
     (libexec/"janet-seed").install janet_seed_dir.children
 
@@ -46,12 +47,12 @@ class JanetSeed < Formula
       cd "#{janet_root}" && exec "#{py}" -m src.main "$@"
     EOS
 
-    chmod 0755, bin/"janet-api-server", bin/"janet-core"
+    chmod 0755, [bin/"janet-api-server", bin/"janet-core"]
   end
 
   test do
     cd libexec/"janet-seed" do
-      system libexec/"bin/python", "-c", "from src.constitution_loader import Constitution; print('OK')"
+      assert_equal "OK", shell_output("#{libexec}/bin/python -c 'from src.constitution_loader import Constitution; print(\"OK\")'").strip
     end
   end
 end
