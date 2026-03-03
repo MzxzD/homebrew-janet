@@ -8,17 +8,17 @@ class JanetSeed < Formula
   url "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
   version "0.1.0"
   sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   depends_on "python@3.12"
-  depends_on "portaudio" => :recommended
   depends_on "ollama" => :recommended
+  depends_on "portaudio" => :recommended
 
   def install
-    janet_seed_dir = (buildpath/"Janet-Projects-main/JanetOS/janet-seed").directory? ? (buildpath/"Janet-Projects-main/JanetOS/janet-seed") : (buildpath/"JanetOS/janet-seed")
-    unless janet_seed_dir.directory?
-      odie "janet-seed directory not found in archive"
-    end
+    janet_seed_dir = (buildpath/"Janet-Projects-main/JanetOS/janet-seed").directory? ?
+                     (buildpath/"Janet-Projects-main/JanetOS/janet-seed") :
+                     (buildpath/"JanetOS/janet-seed")
+    odie "janet-seed directory not found in archive" unless janet_seed_dir.directory?
 
     venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install "-r", janet_seed_dir/"requirements.txt"
