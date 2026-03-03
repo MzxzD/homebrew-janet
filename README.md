@@ -42,6 +42,20 @@ janet-api-server
 janet-core
 ```
 
+## Publish the tap
+
+1. Push this repo to GitHub as `MzxzD/homebrew-janet`:
+   ```bash
+   git remote add origin https://github.com/MzxzD/homebrew-janet.git
+   git push -u origin main
+   ```
+
+2. Ensure [Janet-Projects](https://github.com/MzxzD/Janet-Projects) exists and the archive URL is reachable:
+   ```bash
+   curl -sI "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
+   ```
+   If using a different repo or tags, update the `url` and `sha256` in each formula.
+
 ## Documentation
 
 - [Janet-Projects](https://github.com/MzxzD/Janet-Projects)

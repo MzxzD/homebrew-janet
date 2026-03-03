@@ -15,8 +15,11 @@ class JanetSeed < Formula
   depends_on "portaudio" => :recommended
 
   def install
-    base = (buildpath/"Janet-Projects-main").directory? ?
-           buildpath/"Janet-Projects-main" : buildpath
+    base = if (buildpath/"Janet-Projects-main").directory?
+      buildpath/"Janet-Projects-main"
+    else
+      buildpath
+    end
     janet_seed_dir = base/"JanetOS/janet-seed"
     odie "janet-seed directory not found in archive" unless janet_seed_dir.directory?
 

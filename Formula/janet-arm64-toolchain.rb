@@ -11,8 +11,11 @@ class JanetArm64Toolchain < Formula
   depends_on "rust" => :build
 
   def install
-    base = (buildpath/"Janet-Projects-main").directory? ?
-           buildpath/"Janet-Projects-main" : buildpath
+    base = if (buildpath/"Janet-Projects-main").directory?
+      buildpath/"Janet-Projects-main"
+    else
+      buildpath
+    end
     cd base/"janet-arm64-toolchain" do
       system "cargo", "install", "--path", "crates/assembler", *std_cargo_args
     end

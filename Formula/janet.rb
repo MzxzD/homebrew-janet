@@ -9,9 +9,9 @@ class Janet < Formula
   license "GPL-3.0-or-later"
 
   depends_on "MzxzD/janet/janet-seed"
+  depends_on "ollama" => :recommended
   depends_on "MzxzD/janet/janet-arm64-toolchain" => :optional
   depends_on "MzxzD/janet/janet-peer" => :optional
-  depends_on "ollama" => :recommended
 
   def install
     pkgshare.mkpath
