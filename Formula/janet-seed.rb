@@ -25,10 +25,11 @@ class JanetSeed < Formula
 
     # Create venv manually (avoids Homebrew virtualenv_create ArgumentError on Intel Mac)
     python = Formula["python@3.12"].opt_bin/"python3.12"
-    system python, "-m", "venv", libexec
+    system python.to_s, "-m", "venv", libexec.to_s
     pip = libexec/"bin/pip"
-    pip_args = ["install", "-r", (janet_seed_dir/(build.with?("full") ? "requirements.txt" : "requirements-core.txt")).to_s]
-    system pip, *pip_args
+    req_name = build.with?("full") ? "requirements.txt" : "requirements-core.txt"
+    req_path = (janet_seed_dir/req_name).to_s
+    system "#{pip} install -r #{req_path}"
 
     (libexec/"janet-seed").install janet_seed_dir.children
 
