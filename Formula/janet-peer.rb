@@ -5,7 +5,7 @@ class JanetPeer < Formula
   homepage "https://github.com/MzxzD/Janet-Projects"
   url "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
   version "1.0.0"
-  sha256 "87f963ab29fb6ef07c375f427ab22a65891b31585e6355308f1baecbf1281739"
+  sha256 "188a70aa81a31cb5b20625bb5a6ae7bba1f61cb04d15480753335ea7ffdaef84"
   license "GPL-3.0-or-later"
 
   depends_on "rust" => :build
