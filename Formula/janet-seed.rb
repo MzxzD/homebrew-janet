@@ -15,9 +15,9 @@ class JanetSeed < Formula
   depends_on "portaudio" => :recommended
 
   def install
-    janet_seed_dir = (buildpath/"Janet-Projects-main/JanetOS/janet-seed").directory? ?
-                     (buildpath/"Janet-Projects-main/JanetOS/janet-seed") :
-                     (buildpath/"JanetOS/janet-seed")
+    base = (buildpath/"Janet-Projects-main").directory? ?
+           buildpath/"Janet-Projects-main" : buildpath
+    janet_seed_dir = base/"JanetOS/janet-seed"
     odie "janet-seed directory not found in archive" unless janet_seed_dir.directory?
 
     venv = virtualenv_create(libexec, "python3.12")

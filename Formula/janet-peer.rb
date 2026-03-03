@@ -11,9 +11,9 @@ class JanetPeer < Formula
   depends_on "rust" => :build
 
   def install
-    peer_dir = (buildpath/"Janet-Projects-main").directory? ?
-               buildpath/"Janet-Projects-main/janet-peer" : buildpath/"janet-peer"
-    cd peer_dir do
+    base = (buildpath/"Janet-Projects-main").directory? ?
+           buildpath/"Janet-Projects-main" : buildpath
+    cd base/"janet-peer" do
       system "cargo", "install", *std_cargo_args
     end
   end

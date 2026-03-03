@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Janet < Formula
-  desc "Janet AI ecosystem - voice-first, offline, constitutional AI"
+  desc "Voice-first, offline, constitutional AI ecosystem"
   homepage "https://github.com/MzxzD/Janet-Projects"
   url "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
   version "0.1.0"
@@ -9,13 +9,13 @@ class Janet < Formula
   license "GPL-3.0-or-later"
 
   depends_on "MzxzD/janet/janet-seed"
-  depends_on "MzxzD/janet/janet-peer" => :optional
   depends_on "MzxzD/janet/janet-arm64-toolchain" => :optional
+  depends_on "MzxzD/janet/janet-peer" => :optional
   depends_on "ollama" => :recommended
 
   def install
-    (share/"janet").mkpath
-    (share/"janet/README").write <<~EOS
+    pkgshare.mkpath
+    (pkgshare/"README").write <<~EOS
       Janet AI ecosystem - voice-first, offline, constitutional
       Commands: janet-api-server, janet-core, janet-peer, janet-as
     EOS
