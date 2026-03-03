@@ -2,6 +2,17 @@
 
 ## janet-seed
 
+### ArgumentError: wrong number of arguments (given 2, expected 1)
+
+Occurs on some Homebrew installations (e.g. Intel Mac with /usr/local) during venv creation. The formula was updated to use the single-arg `virtualenv_create(libexec)` form. Update the tap and retry:
+
+```bash
+brew update
+brew upgrade MzxzD/janet/janet-seed
+```
+
+If it still fails, ensure Homebrew is up to date: `brew update && brew upgrade`.
+
 ### ImportError: No module named 'chromadb'
 
 You installed the minimal (default) variant. ChromaDB is optional. Either:

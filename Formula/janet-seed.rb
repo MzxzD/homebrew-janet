@@ -25,7 +25,8 @@ class JanetSeed < Formula
     janet_seed_dir = base/"JanetOS/janet-seed"
     odie "janet-seed directory not found in archive" unless janet_seed_dir.directory?
 
-    venv = virtualenv_create(libexec, "python3.12")
+    # Use single-arg form for compatibility with older Homebrew (Intel Mac /usr/local)
+    venv = virtualenv_create(libexec)
     req_file = build.with?("full") ? "requirements.txt" : "requirements-core.txt"
     venv.pip_install "-r", janet_seed_dir/req_file
 
