@@ -10,6 +10,7 @@ class Janet < Formula
 
   depends_on "MzxzD/janet/janet-seed"
   depends_on "ollama" => :recommended
+  depends_on "MzxzD/janet/janet-awakening" => :recommended
   depends_on "MzxzD/janet/janet-arm64-toolchain" => :optional
   depends_on "MzxzD/janet/janet-peer" => :optional
 
@@ -17,7 +18,7 @@ class Janet < Formula
     pkgshare.mkpath
     (pkgshare/"README").write <<~EOS
       Janet AI ecosystem - voice-first, offline, constitutional
-      Commands: janet-api-server, janet-core, janet-peer, janet-as
+      Commands: janet-api-server, janet-core, janet-awakening, janet-peer, janet-as
     EOS
   end
 

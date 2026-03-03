@@ -13,8 +13,9 @@ brew install MzxzD/janet/janet
 
 | Formula | Description |
 |---------|-------------|
-| `janet` | Meta-formula: janet-seed + optional janet-peer, janet-arm64-toolchain |
+| `janet` | Meta-formula: janet-seed + janet-awakening + optional janet-peer, janet-arm64-toolchain |
 | `janet-seed` | Janet AI core (API server, Ollama, constitutional AI) |
+| `janet-awakening` | IDE integration (Continue.dev + deepseek-coder:6.7b default) |
 | `janet-peer` | P2P mesh daemon |
 | `janet-arm64-toolchain` | ARM64 assembler (`janet-as`) |
 
@@ -43,6 +44,10 @@ brew install MzxzD/janet/janet
 
 # Start Janet API server
 janet-api-server
+
+# Or for IDE (Continue.dev) with deepseek-coder:6.7b
+janet-awakening-setup   # first time: creates ~/.continue/config.json
+janet-awakening        # start server for Cursor/VS Code
 
 # Or start Janet core (WebSocket)
 janet-core

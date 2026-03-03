@@ -23,4 +23,5 @@ jobs:
           brew audit ${{ github.repository_owner }}/janet/janet-peer --strict
           brew audit ${{ github.repository_owner }}/janet/janet-arm64-toolchain --strict
           brew audit ${{ github.repository_owner }}/janet/janet-seed --strict
+          brew audit ${{ github.repository_owner }}/janet/janet-awakening --strict
           brew audit ${{ github.repository_owner }}/janet/janet --strict
