@@ -7,7 +7,7 @@ class JanetSeed < Formula
   homepage "https://github.com/MzxzD/Janet-Projects"
   url "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
   version "0.1.0"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  sha256 "87f963ab29fb6ef07c375f427ab22a65891b31585e6355308f1baecbf1281739"
   license "GPL-3.0-or-later"
 
   depends_on "python@3.12"
