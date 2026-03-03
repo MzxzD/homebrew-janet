@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class JanetSeed < Formula
-  include Language::Python::Virtualenv
-
   desc "Janet AI core - constitutional, offline-first AI companion"
   homepage "https://github.com/MzxzD/Janet-Projects"
   url "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
@@ -25,10 +23,12 @@ class JanetSeed < Formula
     janet_seed_dir = base/"JanetOS/janet-seed"
     odie "janet-seed directory not found in archive" unless janet_seed_dir.directory?
 
-    # Use single-arg form for compatibility with older Homebrew (Intel Mac /usr/local)
-    venv = virtualenv_create(libexec)
-    req_file = build.with?("full") ? "requirements.txt" : "requirements-core.txt"
-    venv.pip_install "-r", janet_seed_dir/req_file
+    # Create venv manually (avoids Homebrew virtualenv_create ArgumentError on Intel Mac)
+    python = Formula["python@3.12"].opt_bin/"python3.12"
+    system python, "-m", "venv", libexec
+    pip = libexec/"bin/pip"
+    pip_args = ["install", "-r", (janet_seed_dir/(build.with?("full") ? "requirements.txt" : "requirements-core.txt")).to_s]
+    system pip, *pip_args
 
     (libexec/"janet-seed").install janet_seed_dir.children
 
