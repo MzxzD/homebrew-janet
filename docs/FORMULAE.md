@@ -66,6 +66,22 @@ brew install MzxzD/janet/janet-arm64-toolchain
 
 ---
 
+## janetxapple-passwords-fusion
+
+**Description:** Keychain credential Double Soul for Janet — unified credentials for janet-max, PinchTab, Cursor. Soul Check = OS Keychain prompt (Axiom 10).
+
+**Binary:** `janetxapple`
+
+**Build:** From source (Python, pip install)
+
+```bash
+brew install MzxzD/janet/janetxapple-passwords-fusion
+```
+
+**Verify:** `janetxapple --version` prints semantic version.
+
+---
+
 ## Source URLs
 
 All formulae fetch from:
@@ -75,3 +91,4 @@ Archive structure:
 - `Janet-Projects-main/janet-peer/`
 - `Janet-Projects-main/janet-arm64-toolchain/`
 - `Janet-Projects-main/JanetOS/janet-seed/`
+- `Janet-Projects-main/JanetXApple-Passwords-Fusion/`

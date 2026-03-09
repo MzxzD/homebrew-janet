@@ -18,6 +18,7 @@ brew install MzxzD/janet/janet
 | `janet-awakening` | IDE integration (Continue.dev + deepseek-coder:6.7b default) |
 | `janet-peer` | P2P mesh daemon |
 | `janet-arm64-toolchain` | ARM64 assembler (`janet-as`) |
+| `janetxapple-passwords-fusion` | Keychain credential Double Soul (`janetxapple`) |
 
 ## janet-seed: Fast vs Full
 

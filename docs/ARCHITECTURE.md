@@ -8,7 +8,8 @@ homebrew-janet/
 │   ├── janet.rb              # Meta-formula
 │   ├── janet-seed.rb         # Python (virtualenv)
 │   ├── janet-peer.rb         # Rust
-│   └── janet-arm64-toolchain.rb  # Rust workspace
+│   ├── janet-arm64-toolchain.rb  # Rust workspace
+│   └── janetxapple-passwords-fusion.rb  # Python (pip install)
 ├── docs/
 │   ├── DOCUMENTATION_INDEX.md
 │   ├── OPTIMIZATION.md
@@ -30,10 +31,11 @@ Janet-Projects-main/
 ├── janet-peer/           → janet-peer formula
 ├── janet-arm64-toolchain/
 │   └── crates/assembler/ → janet-arm64-toolchain formula
-└── JanetOS/
-    └── janet-seed/
-        ├── requirements.txt      → --with-full
-        └── requirements-core.txt → default
+├── JanetOS/
+│   └── janet-seed/
+│       ├── requirements.txt      → --with-full
+│       └── requirements-core.txt → default
+└── JanetXApple-Passwords-Fusion/  → janetxapple-passwords-fusion formula
 ```
 
 ## janet-seed install flow
