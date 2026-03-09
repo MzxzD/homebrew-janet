@@ -80,15 +80,20 @@ brew install MzxzD/janet/janetxapple-passwords-fusion
 
 **Verify:** `janetxapple --version` prints semantic version.
 
+**Source:** Fetches from public mirror `https://github.com/MzxzD/JanetXApple-Passwords-Fusion`.
+
 ---
 
 ## Source URLs
 
-All formulae fetch from:
+Most formulae fetch from:
 - `https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz`
+
+**janetxapple-passwords-fusion** fetches from:
+- `https://github.com/MzxzD/JanetXApple-Passwords-Fusion/archive/main.tar.gz` (public mirror)
 
 Archive structure:
 - `Janet-Projects-main/janet-peer/`
 - `Janet-Projects-main/janet-arm64-toolchain/`
 - `Janet-Projects-main/JanetOS/janet-seed/`
-- `Janet-Projects-main/JanetXApple-Passwords-Fusion/`
+- `Janet-Projects-main/JanetXApple-Passwords-Fusion/` (Janet-Projects) or `JanetXApple-Passwords-Fusion-main/` (standalone repo)

@@ -35,7 +35,11 @@ Janet-Projects-main/
 │   └── janet-seed/
 │       ├── requirements.txt      → --with-full
 │       └── requirements-core.txt → default
-└── JanetXApple-Passwords-Fusion/  → janetxapple-passwords-fusion formula
+└── JanetXApple-Passwords-Fusion/  (in Janet-Projects)
+
+janetxapple-passwords-fusion fetches from standalone public repo:
+- https://github.com/MzxzD/JanetXApple-Passwords-Fusion
+- Archive: JanetXApple-Passwords-Fusion-main/
 ```
 
 ## janet-seed install flow
