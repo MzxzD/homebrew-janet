@@ -1,0 +1,27 @@
+name: Audit
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Homebrew
+        run: |
+          git clone --depth 1 https://github.com/Homebrew/brew $HOME/homebrew
+          echo "$HOME/homebrew/bin" >> $GITHUB_PATH
+          $HOME/homebrew/bin/brew shellenv | sed 's/^export //;s/;$//' >> $GITHUB_ENV
+          eval "$($HOME/homebrew/bin/brew shellenv)"
+          brew update
+      - name: Add tap
+        run: brew tap ${{ github.repository_owner }}/janet ${{ github.workspace }}
+      - name: Audit formulae
+        run: |
+          brew audit ${{ github.repository_owner }}/janet/janet-peer --strict
+          brew audit ${{ github.repository_owner }}/janet/janet-arm64-toolchain --strict
+          brew audit ${{ github.repository_owner }}/janet/janet-seed --strict
+          brew audit ${{ github.repository_owner }}/janet/janet-awakening --strict
+          brew audit ${{ github.repository_owner }}/janet/janet --strict

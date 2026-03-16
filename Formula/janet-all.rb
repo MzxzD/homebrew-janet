@@ -8,7 +8,7 @@ class JanetAll < Formula
   url "https://github.com/MzxzD/Janet-seed/archive/refs/heads/main.zip"
   version "0.1.0"
   license "GPL-3.0-or-later"
-  sha256 "" # set for bottle; leave empty for --build-from-source
+  sha256 "ddb9528f7e11e19cf1a134d6f76908705c69184776ef1793a9f394a0fe49360c"
 
   depends_on "python@3.11"
   depends_on "ollama" => :recommended

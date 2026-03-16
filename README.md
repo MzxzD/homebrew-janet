@@ -1,47 +1,88 @@
-# Janet Install (public)
+# Homebrew Janet
 
-**Public Homebrew tap for Janet-seed.** No private repos required.
+Homebrew tap for the [Janet AI ecosystem](https://github.com/MzxzD/Janet-Projects) — voice-first, offline, constitutional AI.
 
-## Install (macOS / Linux with Homebrew)
+## Install (one-liner)
 
 ```bash
 brew tap MzxzD/janet
-brew install janet-all
+brew install MzxzD/janet/janet
 ```
 
-Then:
+**Or install janet-all only (public [Janet-seed](https://github.com/MzxzD/Janet-seed), no private repos):**
 
-- **Start API:** `janet-server` (default http://localhost:8080)
-- **Menu bar (macOS):** `janet-menubar`
+```bash
+brew tap MzxzD/janet
+brew install MzxzD/janet/janet-all
+```
 
-## From source (this repo)
+Then: `janet-server` (API on :8080), `janet-menubar` (macOS).
 
-If you clone this repo and want to install the formula from the local file:
+## Formulae
 
-1. Create a tap that points at this repo, or
-2. Copy `Formula/janet-all.rb` into your tap’s Formula dir, then `brew install janet-all`
+| Formula | Description |
+|---------|-------------|
+| `janet` | Meta-formula: janet-seed + janet-awakening + optional janet-peer, janet-arm64-toolchain |
+| `janet-all` | **Public:** janet-seed from [MzxzD/Janet-seed](https://github.com/MzxzD/Janet-seed) — API server + menu bar (requirements-core) |
+| `janet-seed` | Janet AI core (API server, Ollama, constitutional AI) |
+| `janet-awakening` | IDE integration (Continue.dev + deepseek-coder:6.7b default) |
+| `janet-peer` | P2P mesh daemon |
+| `janet-arm64-toolchain` | ARM64 assembler (`janet-as`) |
+| `janetxapple-passwords-fusion` | Keychain credential Double Soul (`janetxapple`) |
 
-Standard tap name: **homebrew-janet** so that `brew tap MzxzD/janet` works (repo URL: `https://github.com/MzxzD/homebrew-janet`).
+## janet-seed: Fast vs Full
 
-## Make this repo public on GitHub
+**Default (minimal, ~1–2 min):** Core only — API, Ollama, LiteLLM. No voice/ChromaDB/PyTorch.
 
-1. Create a new repo on GitHub: **MzxzD/homebrew-janet** (or your org/user).
-2. Set visibility to **Public**.
-3. Push this folder:
+```bash
+brew install MzxzD/janet/janet-seed
+```
 
-   ```bash
-   cd /path/to/janet-install-public
-   git init
-   git add .
-   git commit -m "Add janet-all formula (public Janet-seed)"
-   git remote add origin https://github.com/MzxzD/homebrew-janet.git
-   git push -u origin main
-   ```
+**Full (~10–20 min):** Voice, ChromaDB, learning/fine-tuning.
 
-4. Anyone can then run: `brew tap MzxzD/janet` and `brew install janet-all`.
+```bash
+brew install MzxzD/janet/janet-seed --with-full
+```
 
-## Formula details
+See [docs/OPTIMIZATION.md](docs/OPTIMIZATION.md) for details.
 
-- **Source:** [MzxzD/Janet-seed](https://github.com/MzxzD/Janet-seed) (public).
-- Uses `requirements-core.txt` for a lighter install; falls back to `requirements.txt` if needed.
-- Optional: `ollama` (recommended) for local LLM.
+## Quick Start
+
+```bash
+# Install
+brew tap MzxzD/janet
+brew install MzxzD/janet/janet
+
+# Start Janet API server
+janet-api-server
+
+# Or for IDE (Continue.dev) with deepseek-coder:6.7b
+janet-awakening-setup   # first time: creates ~/.continue/config.json
+janet-awakening        # start server for Cursor/VS Code
+
+# Or start Janet core (WebSocket)
+janet-core
+```
+
+**Or with janet-all only (public Janet-seed):**
+
+```bash
+brew tap MzxzD/janet
+brew install MzxzD/janet/janet-all
+janet-server   # API on http://localhost:8080
+```
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md) | Documentation index |
+| [docs/OPTIMIZATION.md](docs/OPTIMIZATION.md) | Install optimization |
+| [docs/FORMULAE.md](docs/FORMULAE.md) | Formula reference |
+| [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Troubleshooting |
+
+## Links
+
+- [Janet-Projects](https://github.com/MzxzD/Janet-Projects)
+- [Janet-seed (public)](https://github.com/MzxzD/Janet-seed)
+- [JanetOS](https://github.com/MzxzD/Janet-Projects/tree/main/JanetOS)
