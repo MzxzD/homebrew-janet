@@ -2,10 +2,10 @@
 
 class JanetSeed < Formula
   desc "Janet AI core - constitutional, offline-first AI companion"
-  homepage "https://github.com/MzxzD/Janet-Projects"
-  url "https://github.com/MzxzD/Janet-Projects/archive/refs/heads/main.tar.gz"
-  version "0.1.0"
-  sha256 "188a70aa81a31cb5b20625bb5a6ae7bba1f61cb04d15480753335ea7ffdaef84"
+  homepage "https://github.com/MzxzD/Janet-seed"
+  url "https://github.com/MzxzD/Janet-seed/archive/refs/heads/main.zip"
+  version "0.1.1"
+  sha256 "d6c33c6e4bc1aae8c3bf833618fc81e8c154ded7e7ae7a45f8d8673e85580d32"
   license "GPL-3.0-or-later"
 
   option "with-full", "Install full dependencies (voice, ChromaDB, learning) - slower install"
@@ -15,24 +15,20 @@ class JanetSeed < Formula
   depends_on "portaudio" => :recommended
 
   def install
-    base = if (buildpath/"Janet-Projects-main").directory?
-      buildpath/"Janet-Projects-main"
+    base = if (buildpath/"Janet-seed-main").directory?
+      buildpath/"Janet-seed-main"
     else
       buildpath
     end
-    janet_seed_dir = base/"JanetOS/janet-seed"
-    odie "janet-seed directory not found in archive" unless janet_seed_dir.directory?
-
-    # Create venv manually (avoids Homebrew virtualenv_create ArgumentError on Intel Mac)
-    python = Formula["python@3.12"].opt_bin/"python3.12"
-    system python.to_s, "-m", "venv", libexec.to_s
-    pip = libexec/"bin/pip"
     req_name = build.with?("full") ? "requirements.txt" : "requirements-core.txt"
-    req_path = (janet_seed_dir/req_name).to_s
-    # Use safe_system (Homebrew.system) to avoid Formula#system ArgumentError on some setups
-    safe_system pip.to_s, "install", "-r", req_path
+    odie "janet-seed: missing #{req_name}" unless (base/req_name).exist?
 
-    (libexec/"janet-seed").install janet_seed_dir.children
+    python = Formula["python@3.12"].opt_bin/"python3.12"
+    system python, "-m", "venv", libexec
+    pip = libexec/"bin/pip"
+    safe_system pip, "install", "-r", (base/req_name).to_s
+
+    (libexec/"janet-seed").install base.children
 
     janet_root = libexec/"janet-seed"
     py = libexec/"bin/python"

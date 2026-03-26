@@ -24,7 +24,7 @@ Then: `janet-server` (API on :8080), `janet-menubar` (macOS).
 |---------|-------------|
 | `janet` | Meta-formula: janet-seed + janet-awakening + optional janet-peer, janet-arm64-toolchain |
 | `janet-all` | **Public:** janet-seed from [MzxzD/Janet-seed](https://github.com/MzxzD/Janet-seed) — API server + menu bar (requirements-core) |
-| `janet-seed` | Janet AI core (API server, Ollama, constitutional AI) |
+| `janet-seed` | **Public** [Janet-seed](https://github.com/MzxzD/Janet-seed) — `janet-api-server`, `janet-core` (same source as `janet-all`) |
 | `janet-awakening` | IDE integration (Continue.dev + deepseek-coder:6.7b default) |
 | `janet-peer` | P2P mesh daemon |
 | `janet-arm64-toolchain` | ARM64 assembler (`janet-as`) |
