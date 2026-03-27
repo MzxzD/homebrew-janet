@@ -9,6 +9,14 @@ brew tap MzxzD/janet
 brew install MzxzD/janet/janet
 ```
 
+**Mesh bundle (Janet Ultimate–style: full Janet + `janet-peer` + Tailscale overlay):**
+
+```bash
+brew tap MzxzD/janet && brew install MzxzD/janet/janet-mesh
+```
+
+Then: `tailscale up`, run `janet-mesh-env` for IPs and hints, `export JANET_API_HOST=0.0.0.0 && janet-api-server`.
+
 **Or install janet-all only (public [Janet-seed](https://github.com/MzxzD/Janet-seed), no private repos):**
 
 ```bash
@@ -27,6 +35,7 @@ Then: `janet-server` (API on :8080), `janet-menubar` (macOS).
 | `janet-seed` | **Public** [Janet-seed](https://github.com/MzxzD/Janet-seed) — `janet-api-server`, `janet-core` (same source as `janet-all`) |
 | `janet-awakening` | IDE integration (Continue.dev + deepseek-coder:6.7b default) |
 | `janet-peer` | P2P mesh daemon |
+| `janet-mesh` | Meta: `janet` + `janet-peer` + Tailscale — cluster-style mesh (see `janet-mesh-env`) |
 | `janet-arm64-toolchain` | ARM64 assembler (`janet-as`) |
 | `janetxapple-passwords-fusion` | Keychain credential Double Soul (`janetxapple`) |
 
