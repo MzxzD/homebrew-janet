@@ -38,6 +38,15 @@ Then: `janet-server` (API on :8080), `janet-menubar` (macOS).
 | `janet-mesh` | Meta: `janet` + `janet-peer` + Tailscale — cluster-style mesh (see `janet-mesh-env`) |
 | `janet-arm64-toolchain` | ARM64 assembler (`janet-as`) |
 | `janetxapple-passwords-fusion` | Keychain credential Double Soul (`janetxapple`) |
+| `janet-portable-xrdesk` | [Janet Portable](https://github.com/MzxzD/janet-portable-xrdesk) launcher + **JanetXRDesk** share (RustDesk OSS sidecar docs); depends on `janet-all` |
+
+**Portable + RustDesk bundle:**
+
+```bash
+brew tap MzxzD/janet
+brew install MzxzD/janet/janet-portable-xrdesk
+janet-portable
+```
 
 ## janet-seed: Fast vs Full
 

@@ -26,3 +26,4 @@ jobs:
           brew audit ${{ github.repository_owner }}/janet/janet-awakening --strict
           brew audit ${{ github.repository_owner }}/janet/janet --strict
           brew audit ${{ github.repository_owner }}/janet/janet-mesh --strict
+          brew audit ${{ github.repository_owner }}/janet/janet-portable-xrdesk --strict
